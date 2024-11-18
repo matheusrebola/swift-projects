@@ -32,12 +32,10 @@ class MoviesTableViewController: UITableViewController {
 	func loadMovies() {
 		//O objeto fetchRequest é responsável por fazer uma leitura dos itens do Core Data. Criamos um fetchRequest de Movie pois queremos buscar todos os filmes da base. A classe Movie (gerada pelo Core Data) já possui um método que nos retorna seu fetchRequest 
 		let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
-		//Abaixo, definimos que os filmes serão ordenados
-		//em ordem alfabética pelo título
+		//Abaixo, definimos que os filmes serão ordenados em ordem alfabética pelo título
 		let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
 		fetchRequest.sortDescriptors = [sortDescriptor]
-		//Instanciando objeto fetchedResultsController. Aqui
-		//precisamos passar o fetchRequest e o contexto do Core Data.
+		//Instanciando objeto fetchedResultsController. Aqui precisamos passar o fetchRequest e o contexto do Core Data.
 		fetchedResultsController = 
 			NSFetchedResultsController(fetchRequest: fetchRequest,
 				managedObjectContext: context,
